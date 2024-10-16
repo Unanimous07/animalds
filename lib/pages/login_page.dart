@@ -148,6 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     ? const CircularProgressIndicator()
                     : MyButton(
                         onTap: signInUser,
+                        text: "Login",
                       ),
 
                 // Or continue with

@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
       home: const AuthPage(),
       routes: {
         "/dashboard": (context) => HomePage(),
-       
       },
     );
   }

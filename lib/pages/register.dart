@@ -8,7 +8,8 @@ class RegisterPage extends StatefulWidget {
   final Function() onTap;
   const RegisterPage({
     super.key,
-    required this.onTap,});
+    required this.onTap,
+  });
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -17,22 +18,29 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   // Text editing controllers for username and password
   final _usernameController = TextEditingController();
+  final _ConfirmPasswordController = TextEditingController();
   final _passwordController = TextEditingController();
 
   // Flag to indicate loading state (optional)
   bool _isLoading = false;
 
   // Sign in function
-  Future<void> signInUser() async {
+  Future<void> signUserUp() async {
     setState(() {
-      _isLoading = true; // Show loading indicator while signing in
+      _isLoading = true; // Show loading indicator while creating user account
     });
 
+    // creating a user account with email and password
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _usernameController.text,
-        password: _passwordController.text,
-      );
+      if (_passwordController.text == _ConfirmPasswordController.text) {
+        {
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: _usernameController.text,
+            password: _passwordController.text,
+          );
+        }
+      }
+
       // Successful login handling (e.g., navigate to home page)
       Navigator.pushReplacementNamed(
           context, '/home'); // Replace with your home page route
@@ -123,19 +131,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 // Confirm Password field
                 const SizedBox(height: 30),
                 MyTextfield(
-                  controller: _passwordController,
+                  controller: _ConfirmPasswordController,
                   hintText: "Confirm Password",
                   obscureText: true, // Hide password characters
                 ),
-
-
 
                 // Login button
                 const SizedBox(height: 25),
                 _isLoading
                     ? const CircularProgressIndicator()
                     : MyButton(
-                        onTap: signInUser,
+                        onTap: signUserUp,
+                        text: "Register",
                       ),
 
                 // Or continue with
@@ -193,7 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        "Login",
+                        "SignIn",
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
