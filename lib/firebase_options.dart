@@ -87,4 +87,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'animalds-24.appspot.com',
     measurementId: 'G-M3N0T505GH',
   );
+
 }

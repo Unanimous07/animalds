@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF23D498), // Background color
+      backgroundColor: const Color(0xFF23D498), // Background color
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -87,10 +87,8 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 // Logo (you can add your own logo here)
                 const SizedBox(height: 70),
-                const Icon(
-                  Icons.lock,
-                  size: 100,
-                ),
+                const Image(image: AssetImage('assets/images/white.png'), height: 100),
+                
 
                 // Welcome message
                 const SizedBox(height: 50),
