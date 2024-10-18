@@ -16,6 +16,7 @@ class DashRectangle extends StatelessWidget {
       height: theight,
       width: 200,
       decoration: BoxDecoration(
+        
         border: Border.all( color: Colors.white,),
         borderRadius: BorderRadius.circular(8),
         color: Colors.grey[200],
@@ -28,6 +29,7 @@ class DashRectangle extends StatelessWidget {
             color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.bold,
+            
             
           ),
         ),
