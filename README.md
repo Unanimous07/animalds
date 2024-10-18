@@ -1,4 +1,4 @@
-# authentication
+This is an android application that is focusing on animal recording digitaly. 
 
 A new Flutter project.
 
