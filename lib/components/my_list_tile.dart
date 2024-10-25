@@ -18,7 +18,12 @@ class MyListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0),
       child: ListTile(
-        title: Text(text),
+        title: Text(text,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontFamily: "Cholcolate",
+            )),
         leading: Icon(icon),
         onTap: onTap,
       ),

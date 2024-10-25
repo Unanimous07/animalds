@@ -75,6 +75,7 @@ class _AnimalIdentificationState extends State<AnimalIdentification> {
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.white,
+                    fontFamily: "Cholcolate",
                   ),
                 ),
                 const SizedBox(height: 70),

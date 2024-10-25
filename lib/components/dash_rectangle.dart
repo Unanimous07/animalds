@@ -19,7 +19,7 @@ class DashRectangle extends StatelessWidget {
         
         border: Border.all( color: Colors.white,),
         borderRadius: BorderRadius.circular(8),
-        color: Colors.grey[200],
+        color:const  Color(0xFF23D498),
 
       ),
       child: Center(
@@ -28,7 +28,8 @@ class DashRectangle extends StatelessWidget {
           style: const TextStyle(
             color: Colors.black,
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            
+            fontFamily: "Cholcolate",
             
             
           ),

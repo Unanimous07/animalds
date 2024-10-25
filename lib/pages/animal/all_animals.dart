@@ -1,3 +1,4 @@
+import 'package:authentication/pages/animal/squre_animal.dart';
 import 'package:flutter/material.dart';
 
 class AllAnimals extends StatefulWidget {
@@ -14,8 +15,11 @@ class _AllAnimalsState extends State<AllAnimals> {
       appBar: AppBar(
         title: const Text('All Animals'),
       ),
-      body: const Center(
-        child: Text('All Animals'),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return const MySquere();
+        },
       ),
     );
   }

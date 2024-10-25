@@ -9,8 +9,18 @@ class AddAnimal extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add Animal'),
       ),
-      body: const Center(
-        child: Text('Add Animal'),
+      body: Center(
+        child: Stack(
+          children: [
+            
+            Container(
+              
+            ),
+            Container(
+              
+            )
+          ],
+        )
       ),
     );
   }

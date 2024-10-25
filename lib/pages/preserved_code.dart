@@ -51,8 +51,20 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   
                   Image.asset("lib/images/line.png" , height: 450, width: 450),
+                ],
+              ),
 
+            
+
+
+
+        
+              // the one on the bottom of the screen
+              Container(
+                color: Colors.white,
+                child: Column( 
                   
+                  children: [
                     Container(
                     padding: const EdgeInsets.all(20),
                     margin: const EdgeInsets.only(top: 40),
@@ -84,27 +96,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     )),
-                ],
-              ),
-
-            
-
-
-
-        
-              // the one on the bottom of the screen
-              Container(
-                color: Colors.white,
-                child: Column( 
-                  
-                  children: [
-                    
                     
                 const SizedBox(
                   height: 40,
                 ),
-
-                //this is the first row of the buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -136,8 +131,6 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-
-                //this is the second row of the buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -169,8 +162,6 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-
-                //thi is the container that is holding the other features tab
                 Container(
                     padding: const EdgeInsets.all(20),
                     height: 70,
@@ -204,9 +195,6 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-
-
-                //this is the third row of the buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -238,8 +226,6 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 20,
                 ),
-
-                //this is the fourth row of the buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
