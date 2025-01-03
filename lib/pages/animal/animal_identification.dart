@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-
 class AnimalIdentification extends StatefulWidget {
-   AnimalIdentification({super.key});
+  AnimalIdentification({super.key});
   final user = FirebaseAuth.instance.currentUser;
 
   @override
@@ -15,8 +14,36 @@ class AnimalIdentification extends StatefulWidget {
 }
 
 class _AnimalIdentificationState extends State<AnimalIdentification> {
-    final ImagePicker _imagePicker = ImagePicker();
-    XFile? _capturedImage;
+  final ImagePicker _imagePicker = ImagePicker();
+  XFile? _capturedImage;
+  File? image;
+
+  late ImagePicker imagePicker;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    imagePicker = ImagePicker();
+  }
+
+  chooseimage() async {
+    XFile? selectedImage = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (selectedImage != null) {
+      setState(() {
+        image = File(selectedImage.path);
+      });
+    }
+  }
+
+    captureImage() async {
+    XFile? selectedImage = await imagePicker.pickImage(source: ImageSource.camera);
+    if (selectedImage != null) {
+      setState(() {
+        image = File(selectedImage.path);
+      });
+    }
+  }
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -78,16 +105,27 @@ class _AnimalIdentificationState extends State<AnimalIdentification> {
                     fontFamily: "Cholcolate",
                   ),
                 ),
-                const SizedBox(height: 70),
+
+                // new code
+                image == null
+                    ? const Icon(
+                        Icons.image_outlined,
+                        size: 300,
+                      )
+                    : Image.file(image!),
+
+                // end of new code
+
+                const SizedBox(height: 10),
                 Center(
                   child: _capturedImage != null
                       ? Image.file(File(_capturedImage!.path))
                       : const Text('No image captured/loaded'),
                 ),
                 const SizedBox(height: 50),
-                MyButton(onTap: capturePhoto, text: "Capture a picture"),
+                MyButton(onTap: captureImage, text: "Capture a picture"),
                 const SizedBox(height: 20), // Added spacing between buttons
-                MyButton(onTap: pickImageFromGallery, text: "Load a picture"),
+                MyButton(onTap: chooseimage, text: "Load a picture"),
                 const SizedBox(height: 50),
               ],
             ),
